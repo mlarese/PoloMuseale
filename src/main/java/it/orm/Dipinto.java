@@ -16,7 +16,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
-// bversione 1.1.2
+// bversione 1.1.2.13
 
 @Table(name="dipinto")
 
