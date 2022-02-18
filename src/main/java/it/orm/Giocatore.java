@@ -31,6 +31,8 @@ public class Giocatore implements Serializable {
 	}
 	public Giocatore() {
 	}
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	@Column(name="id_calciatore")

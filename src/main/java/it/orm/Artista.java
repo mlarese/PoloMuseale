@@ -19,10 +19,19 @@ import jakarta.persistence.Table;
 
 
 
-//@Table(name="artista",schema = "musei_esteri")
+@Table(name="artista")
 
-//@Entity
+@Entity
 public class Artista implements Serializable{
+	
+	@Override
+	public String toString() {
+		return "Artista [id=" + id + ", nome=" + nome + ", cognome="
+	+ cognome +  "]";
+	}
+
+
+
 	private static final long serialVersionUID = 3L;	
 	
 	private Integer id;
@@ -33,7 +42,11 @@ public class Artista implements Serializable{
 		this.dipinti = dipinti;
 	}
 
-
+	public Artista(Integer id, String nome, String cognome) {
+		this.id = id;
+		this.nome = nome;
+		this.cognome = cognome;
+	}
 
 	public Artista() {
 	}

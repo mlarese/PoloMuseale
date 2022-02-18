@@ -13,7 +13,7 @@ import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "address")
+@Table
 public class Address {
 
     @Id
@@ -22,7 +22,12 @@ public class Address {
     @Column(name = "street")
     private String name;
 
-    public String getName() {
+    @Override
+	public String toString() {
+		return "Address [id=" + id + ", name=" + name +"]";
+	}
+
+	public String getName() {
 		return name;
 	}
 
@@ -31,8 +36,8 @@ public class Address {
 	}
 
 	@OneToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name="id_utente")
 	@MapsId
-	@JoinColumn(name="user_id")
     private User owner;
 	
 

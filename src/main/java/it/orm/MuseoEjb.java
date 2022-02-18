@@ -19,30 +19,13 @@ public class MuseoEjb implements MuseoEjbRemote, MuseoEjbLocal {
     public void salva() {
     	//Museo m = em.find(Museo.class,1);
     	Museo m = new Museo();
-    	Artista a = new Artista();
-    	
-    	a.setNome("Mario");
-    	a.setCognome("Scussel");
-    	Dipinto d = new Dipinto();
-    	d.setNome("Primavera");
-    	d.setMuseo(m);
-    	
-    	a.getDipinti().add(new Dipinto());
-    	m.setCitta("firenze----");
-    	
-    	m.setNome("uffizi");
-    	d.setMuseo(m);
-    	d.getArtisti().add(a);
-    	
-    	Direttore dir = new Direttore();
-    	dir.setNome("Mauro");
-    	dir.setCognome("Larese");
-    	dir.setMuseo(m);
-    	em.persist(d);
-    	em.persist(dir);
-    	em.persist(a);
+    	m.setCitta("Milano");
+    	m.setNome("Louvre");
+    	em.persist(m);
+
     	em.flush();
-    	//m.setCitta("Milano");
+    
+
     	System.out.println(m.getCitta());
     			
     }
@@ -60,20 +43,37 @@ public class MuseoEjb implements MuseoEjbRemote, MuseoEjbLocal {
    
     	
     	System.out.println("aggiorno con user");
-    	User u = new User();
-    	u.setNome("mauro") ;
+    	User u = new User(); u.setNome("mauro") ;
 
-    	Address a = new Address(); 
-    	a.setName("via di foro");
+    	Address a = new Address();  a.setName("via di foro");
     	a.setOwner(u);
     	
     	u.setAddress(a);
     	
-    	em.persist(u);
-    	em.flush();
+    	DAO<Address> d = new DAO<Address>(em) {};
+    	DAO<User> du = new DAO<User>(em) {};
+    	d.insert(a);
+    	Address a1 = new Address();  a1.setName("via Rova");
     	
+    	User u1 = new User(); u.setNome("mario") ;
+    	a1.setOwner(u1);
+    	//d.insert(a1);
     	
+    	Object fa = du.get(getClass("user"), 1);
     	
+    	System.out.println("found "+fa);
+    	
+    }
+    
+    private Class getClass(String name) {
+    	name = Character.toUpperCase(name.charAt(0)) + name.substring(1);
+    	Class clazz=null;
+    	try {  
+    		clazz = Class.forName("it.orm."+name); 
+    	} catch (Exception e) {
+    		
+    	}
+    	return clazz;
     }
     
     public MuseoEjb() {

@@ -10,9 +10,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
-//@Table(name="direttore",schema = "musei_esteri")
+@Table(name="direttore")
 
-//@Entity
+@Entity
 public class Direttore {
 	private Integer id;
 	private String nome;

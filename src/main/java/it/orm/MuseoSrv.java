@@ -35,9 +35,11 @@ public class MuseoSrv extends HttpServlet {
 		
 		String a = request.getParameter("a");
 		
-		if(a.equals("a")) 	mejb.aggiorna();
-		else mejb.reload();
 		
+		//if(a.equals("a")) 	mejb.aggiorna();
+		//else mejb.reload();
+		//mejb.salva();
+		mejb.aggiorna();
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 

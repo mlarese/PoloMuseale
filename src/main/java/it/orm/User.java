@@ -26,8 +26,8 @@ public class User {
     private String nome;
     //...
 
-    @OneToOne( cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
+    @OneToOne( cascade = CascadeType.ALL, mappedBy = "owner")
+    //@PrimaryKeyJoinColumn
     private Address address;
 
 	@Override

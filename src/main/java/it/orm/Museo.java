@@ -17,9 +17,9 @@ import jakarta.persistence.Table;
 
 
 
-//@Table(name="museo",schema = "musei_esteri")
+@Table(name="museo")
 
-//@Entity
+@Entity
 public class Museo implements Serializable{
 	private static final long serialVersionUID = 1L;	
 	
@@ -54,24 +54,6 @@ public class Museo implements Serializable{
 		this.citta = citta;
 	}
 	
-	private Direttore direttore;
 	
-	@OneToOne(cascade = CascadeType.PERSIST, mappedBy = "museo")
-	public Direttore getDirettore() {
-		return direttore;
-	}
-	public void setDirettore(Direttore direttore) {
-		this.direttore = direttore;
-	}
-
-	private List<Dipinto> dipinti;
-
-	@OneToMany(mappedBy = "museo")
-	public List<Dipinto> getDipinti() {
-		return dipinti;
-	}
-	public void setDipinti(List<Dipinto> dipinti) {
-		this.dipinti = dipinti;
-	}
 	
 }

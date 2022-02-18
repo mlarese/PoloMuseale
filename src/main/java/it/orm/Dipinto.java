@@ -18,9 +18,9 @@ import jakarta.persistence.Table;
 
 
 
-//@Table(name="dipinto",schema = "musei_esteri")
+@Table(name="dipinto")
 
-//@Entity
+@Entity
 public class Dipinto implements Serializable{
 	private static final long serialVersionUID = 2L;	
 	
